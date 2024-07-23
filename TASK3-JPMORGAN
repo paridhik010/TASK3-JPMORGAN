@@ -1,0 +1,52 @@
+// src/app.ts
+import { fetchData } from './dataService';
+
+async function main() {
+  try {
+    const data = await fetchData();
+    console.log('Data fetched successfully:', data);
+    // Add your modification logic here
+  } catch (error) {
+    console.error('Error fetching data:', error);
+  }
+}
+
+main();
+//bash
+# Step 1: Set Up Your System
+git clone <repository_url>
+cd <repository_name>
+node -v
+npm -v
+npm install
+
+# Step 2: Modify the TypeScript Files
+code .
+
+# Example modification in src/app.ts
+cat <<EOT > src/app.ts
+import { fetchData } from './dataService';
+
+async function main() {
+  try {
+    const data = await fetchData();
+    console.log('Data fetched successfully:', data);
+    // Add your modification logic here
+  } catch (error) {
+    console.error('Error fetching data:', error);
+  }
+}
+
+main();
+EOT
+
+# Run and test the application
+npm start
+
+# Step 3: Generate a Patch File
+git add .
+git commit -m "Modified TypeScript files to implement the required features"
+git format-patch HEAD~1
+
+# Step 4: Submit Your Work
+# Provide the .patch file to the submission system
